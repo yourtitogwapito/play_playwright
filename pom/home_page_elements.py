@@ -7,5 +7,5 @@ Created on Wed Jan 25 13:47:54 2023
 
 class HomePage:
     def __init__(self, page):
-        self.celebrate_header = page.locator("text = Celebrating Beauty and Style")
-        self.celebrate_body = page.locator("text = playwright-practice was founded")
+        self.celebrate_header = "text = Celebrating Beauty and Style"
+        self.celebrate_body = "text = playwright-practice was founded"

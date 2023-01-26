@@ -2,7 +2,7 @@ from playwright.sync_api import Playwright, sync_playwright, expect
 #from playwright.async_api import Playwright, async_playwright
 
 
-def run(playwright) -> None:
+def test_run(playwright) -> None:
     # Assess
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
@@ -31,6 +31,3 @@ def run(playwright) -> None:
     context.close()
     browser.close()
 
-
-with sync_playwright() as playwright:
-    run(playwright)
