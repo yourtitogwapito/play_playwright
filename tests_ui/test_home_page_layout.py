@@ -10,7 +10,7 @@ from pom.home_page_elements import HomePage
 from pom.shop_women_elements import ShopWomen
 
 def test_about_us_section_verbiage(playwright: Playwright):
-    browser = playwright.chromium.launch(headless=False,slow_mo=(3000))
+    browser = playwright.chromium.launch(headless=True,slow_mo=(3000))
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
