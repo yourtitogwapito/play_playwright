@@ -8,3 +8,4 @@ RUN python -m playwright install --with-deps chromium
 
 COPY . .
 RUN pytest --template=html1/index.html --report=report.html
+CMD ["python", "src/host-report.py"]
