@@ -11,7 +11,6 @@ ENV PYTHONUNBUFFERED=1
 RUN pip install pytest
 RUN pip install pytest-playwright
 RUN python -m pip install playwright
-RUN python -m playwright install
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 
@@ -23,5 +22,7 @@ COPY . /app
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
+
+RUN python -m playwright install
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 RUN pytest --template=html1/index.html --report=report.html
