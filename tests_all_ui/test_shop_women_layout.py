@@ -7,14 +7,24 @@ Created on Mon Jan 30 11:33:52 2023
 
 from playwright.sync_api import Playwright, sync_playwright, expect
 from pom.shop_women_elements import ShopWomen
+import pytest, time
 
-def test_shop_women(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=True, slow_mo=(3000))
-    context = browser.new_context()
-    page = context.new_page()
-    page.goto("https://symonstorozhenko.wixsite.com/website-1/")
-    page.get_by_role("link", name="Shop Women").click()
+@pytest.mark.shopwomenpage
+def test_shop_women(ConfTest) -> None:
+    page = ConfTest
     shop_women = ShopWomen(page)
-    # ---------------------
-    page.is_visible(shop_women.shoes)
-
+    time.sleep(3)
+    page.get_by_role("link", name="Shop Women").click()
+    assert shop_women.shoes.is_visible()
+    
+    
+@pytest.mark.xfail(reason="need timesleep")
+def test_shop_wome2n(ConfTest) -> None:
+    page = ConfTest
+    shop_women = ShopWomen(page)
+    page.get_by_role("link", name="Shop Women").click()
+    #time.sleep(3)
+    assert shop_women.backpack.is_visible()
+    
+    
+    
