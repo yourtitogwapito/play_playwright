@@ -18,12 +18,13 @@ def test_shop_women(ConfTest) -> None:
     assert shop_women.shoes.is_visible()
     
     
-@pytest.mark.xfail(reason="need timesleep")
+#@pytest.mark.xfail(reason="need timesleep")
+@pytest.mark.shopwomenpage
 def test_shop_wome2n(ConfTest) -> None:
     page = ConfTest
     shop_women = ShopWomen(page)
     page.get_by_role("link", name="Shop Women").click()
-    #time.sleep(3)
+    time.sleep(3)
     assert shop_women.backpack.is_visible()
     
     
