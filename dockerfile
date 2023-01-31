@@ -11,4 +11,4 @@ COPY . /app
 
 EXPOSE 8888
 RUN pytest --template=html1/index.html --report=report.html
-CMD ["python", "/app/host-report.py"]
+CMD ["python", "host-report.py"]
