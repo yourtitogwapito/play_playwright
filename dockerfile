@@ -1,11 +1,11 @@
 FROM python:3.10-slim
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY requirements.txt .
+COPY . /app
 
 RUN python -m pip install -r requirements.txt
 RUN python -m playwright install --with-deps chromium
 
-COPY . /usr/app
+EXPOSE 8888
 RUN pytest --template=html1/index.html --report=report.html
 CMD ["python", "./host-report.py"]
