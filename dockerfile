@@ -6,6 +6,6 @@ COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 RUN python -m playwright install --with-deps chromium
 
-COPY . .
+COPY . /usr/app
 RUN pytest --template=html1/index.html --report=report.html
-CMD ["python", "host-report.py"]
+CMD ["python", "./host-report.py"]
