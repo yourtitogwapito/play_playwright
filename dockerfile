@@ -11,4 +11,7 @@ COPY . /app
 
 EXPOSE 8888
 RUN pytest --template=html1/index.html --report=report.html
-CMD ["python", "host_report.py"]
+RUN python host_report.py
+RUN docker run -d -p 8888:8888 ferdzcanapi/play_playwright:latest
+#CMD ["python", "host_report.py"]
+
