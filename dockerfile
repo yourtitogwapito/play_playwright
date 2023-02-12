@@ -10,6 +10,7 @@ WORKDIR /app
 COPY . /app
 
 EXPOSE 8888
-RUN pytest --template=html1/index.html --report=report.html
+#RUN pytest --template=html1/index.html --report=report.html
+RUN pytest --html=report.html
 CMD ["python", "host_report.py"]
 
