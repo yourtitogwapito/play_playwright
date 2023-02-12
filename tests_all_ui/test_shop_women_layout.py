@@ -14,7 +14,7 @@ def test_shop_women(ConfTest) -> None:
     page = ConfTest
     shop_women = ShopWomen(page)
     time.sleep(3)
-    page.get_by_role("link", name="Shop Women").click()
+    page.locator("#comp-kqx7ocfp1").get_by_test_id("linkElement").click()
     assert shop_women.shoes.is_visible()
     
     
@@ -23,7 +23,7 @@ def test_shop_women(ConfTest) -> None:
 def test_shop_wome2n(ConfTest) -> None:
     page = ConfTest
     shop_women = ShopWomen(page)
-    page.get_by_role("link", name="Shop Women").click()
+    page.locator("#comp-kqx7ocfp1").get_by_test_id("linkElement").click()
     time.sleep(3)
     assert shop_women.backpack.is_visible()
     
